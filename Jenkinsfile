@@ -69,6 +69,7 @@ pipeline {
                     withKubeConfig([credentialsId: 'file-kubeconfig-frothly-eks']) {
                         // sh "kubectl get nodes"
                         sh "kubectl replace --force -f  ./deploy/kubernetes/" 
+                        sh "kubectl get pods -n frothly-store -o wide"
                     }
                 }
             }
